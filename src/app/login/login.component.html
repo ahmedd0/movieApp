@@ -1,0 +1,28 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="alert alert-danger" role="alert" *ngIf="singinError">{{singinError}}</div>
+
+
+  <div class=" form-group">
+    <label for="email">Email: </label>
+    <input formControlName="email" type="email" class="form-control" id="email">
+    <p class="mt-1" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required"> <i
+        class="fa fa-times" aria-hidden="true"></i> Email Is Required</p>
+
+    <p class="mt-1" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email"> <i
+        class="fa fa-times" aria-hidden="true"></i> Invalid Email
+      Format</p>
+  </div>
+  <div class=" form-group">
+    <label for="password">Password: </label>
+    <input formControlName="password" type="password" class="form-control" id="password">
+    <p class="mt-1" *ngIf="loginForm.controls.password.touched &&loginForm.controls.password.errors?.pattern">
+      <i class="fa fa-times" aria-hidden="true"></i> Invalid
+      Password, Password Should Start With Capital Letter
+    </p>
+    <p class="mt-1" *ngIf="loginForm.controls.password.touched &&loginForm.controls.password.errors?.required">
+      <i class="fa fa-times" aria-hidden="true"></i> Password Is Required
+    </p>
+
+  </div>
+  <button type=" submit" class="btn btn-primary">Submit</button>
+</form>

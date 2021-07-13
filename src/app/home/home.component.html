@@ -1,0 +1,31 @@
+<div class="home">
+
+  <h2 class="mb-3">Trending Movies</h2>
+  <app-loader *ngIf="loader"></app-loader>
+  <div class="row">
+    <div class="col-6 col-md-4 col-lg-2  mb-3 " *ngFor="let item of trendingMovies">
+      <app-media-item [item]="item">
+        <a [routerLink]='["/details",item.media_type,item.id]' class="btn btn-dark">details</a>
+
+      </app-media-item>
+
+
+    </div>
+  </div>
+  <hr>
+  <div class="tvs mt-5">
+    <h2 class="mb-3">Trending Tv Shows</h2>
+    <div class="row">
+      <div class="col-6 col-md-4 col-lg-2  mb-3 " *ngFor="let item of trendingTvShows">
+        <app-media-item [item]="item">
+          <a [routerLink]='["/details",item.media_type,item.id]' class="btn btn-dark">details</a>
+
+        </app-media-item>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

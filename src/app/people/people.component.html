@@ -1,0 +1,14 @@
+<div class="people">
+  <div class="row">
+    <a routerLink="/home" class="col-6 col-md-3 mb-3" *ngFor="let person of data?.results">
+      <div class="img">
+        <img [src]="'https://image.tmdb.org/t/p/w200/'+ person.profile_path" class="w-100" [alt]="person.name">
+      </div>
+      <h5 class="mt-3 text-center">{{person.name}}</h5>
+
+    </a>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,19 @@
+@import "../../assets/scss/variables/colors";
+
+.navbar {
+
+
+
+  .active-menu {
+    right: 0 !important;
+  }
+
+  i {
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .logout {
+    cursor: pointer;
+  }
+}

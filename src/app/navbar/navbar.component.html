@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <a class="navbar-brand" routerLink="">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="movies">movies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="tvshows">Tv Shows</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="people/1">People</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="networks">Networks</a>
+      </li>
+
+
+    </ul>
+    <ul class="mb-0 list-unstyled d-flex">
+      <li class="icon ml-3">
+        <i class="fab fa-spotify" aria-hidden="true"></i>
+
+      </li>
+      <li class="icon ml-3">
+        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+
+      </li>
+      <li class="icon ml-3">
+        <i class="fab fa-google" aria-hidden="true"></i>
+
+      </li>
+      <li class="icon ml-3">
+        <i class="fab fa-github" aria-hidden="true"></i>
+
+      </li>
+    </ul>
+    <ul class="list-unstyled navbar-nav mb-0 ml-4">
+      <li class="nav-item"><a class="nav-link" routerLink="login" *ngIf="!isUser">Login</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="register" *ngIf="!isUser">Register</a></li>
+      <li class="nav-item bg-info rounded">
+        <a class="nav-link" *ngIf="isUser" routerLinkActive="active" routerLink="my-list">myList</a>
+      </li>
+      <li class="nav-item logout"><a class="nav-link" *ngIf="isUser" (click)="logOut()">logout</a></li>
+
+
+    </ul>
+
+  </div>
+</nav>

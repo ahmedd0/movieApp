@@ -1,0 +1,56 @@
+<form [formGroup]="regiserForm" (ngSubmit)="register()">
+  <div class="alert alert-danger" role="alert" *ngIf="singupError">{{singupError}}</div>
+
+  <div class="form-group">
+    <label for="firsName">First Name :</label>
+    <input formControlName="first_name" type="text" class="form-control" id="firsName">
+    <p class="mt-1"
+      *ngIf="regiserForm.controls.first_name.touched && regiserForm.controls.first_name.errors?.maxlength">
+      <i class="fa fa-times" aria-hidden="true"></i> First Name Should be less than 8 char
+    </p>
+    <p class="mt-1"
+      *ngIf="regiserForm.controls.first_name.touched && regiserForm.controls.first_name.errors?.minlength">
+      <i class="fa fa-times" aria-hidden="true"></i> First Name Should Start from 3 char
+    </p>
+    <p class="mt-1" *ngIf="regiserForm.controls.first_name.touched && regiserForm.controls.first_name.errors?.required
+    "> <i class="fa fa-times" aria-hidden="true"></i> This Field Is Required</p>
+
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name : </label>
+    <input formControlName="last_name" type="text" class="form-control" id="lastName">
+    <p class="mt-1" *ngIf="regiserForm.controls.last_name.touched && regiserForm.controls.last_name.errors?.maxlength">
+      <i class="fa fa-times" aria-hidden="true"></i> Last Name
+      Should be less than 8 char
+    </p>
+    <p class="mt-1" *ngIf="regiserForm.controls.last_name.touched && regiserForm.controls.last_name.errors?.minlength">
+      <i class="fa fa-times" aria-hidden="true"></i> Last Name
+      Should Start from 3 char
+    </p>
+    <p class="mt-1" *ngIf="regiserForm.controls.last_name.touched && regiserForm.controls.last_name.errors?.required
+  "> <i class="fa fa-times" aria-hidden="true"></i> This Field Is Required</p>
+  </div>
+  <div class=" form-group">
+    <label for="email">Email: </label>
+    <input formControlName="email" type="email" class="form-control" id="email">
+    <p class="mt-1" *ngIf="regiserForm.controls.email.touched && regiserForm.controls.email.errors?.required"> <i
+        class="fa fa-times" aria-hidden="true"></i> Email Is Required</p>
+
+    <p class="mt-1" *ngIf="regiserForm.controls.email.touched && regiserForm.controls.email.errors?.email"> <i
+        class="fa fa-times" aria-hidden="true"></i> Invalid Email
+      Format</p>
+  </div>
+  <div class=" form-group">
+    <label for="password">Password: </label>
+    <input formControlName="password" type="password" class="form-control" id="password">
+    <p class="mt-1" *ngIf="regiserForm.controls.password.touched &&regiserForm.controls.password.errors?.pattern">
+      <i class="fa fa-times" aria-hidden="true"></i> Invalid
+      Password, Password Should Start With Capital Letter
+    </p>
+    <p class="mt-1" *ngIf="regiserForm.controls.password.touched &&regiserForm.controls.password.errors?.required">
+      <i class="fa fa-times" aria-hidden="true"></i> Password Is Required
+    </p>
+
+  </div>
+  <button type=" submit" class="btn btn-primary">Submit</button>
+</form>

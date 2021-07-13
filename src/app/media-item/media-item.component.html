@@ -1,0 +1,21 @@
+<div class="item position-relative">
+  <div class="img">
+    <img src="https://image.tmdb.org/t/p/w200/{{item.poster_path}}" class="w-100" alt="">
+
+  </div>
+
+  <div class="details position-absolute overflow-hidden">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="details-content text-center text-uppercase">
+        <h4>{{item?.title || item?.name || "unknown"}}</h4>
+        <ng-content select=".btn"></ng-content>
+
+
+      </div>
+
+    </div>
+  </div>
+  <div class="rating position-absolute d-flex justify-content-center align-items-center">
+    <p class="m-0">{{item?.vote_average || "nan" }}</p>
+  </div>
+</div>
