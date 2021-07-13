@@ -26,7 +26,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets", "src/_redirects"],
+            "assets": ["src/favicon.ico", "src/assets", "src/_redirects.html"],
             "styles": [
               "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
 
