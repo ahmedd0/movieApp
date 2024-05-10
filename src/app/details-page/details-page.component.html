@@ -1,37 +1,53 @@
 <div class="row">
   <div class="col-md-6">
     <div class="img">
-      <img src="https://image.tmdb.org/t/p/w500/{{mediaDetails?.poster_path}}" class="w-100"
-        [alt]="mediaDetails?.original_title">
+      <img
+        src="https://image.tmdb.org/t/p/w500/{{ mediaDetails?.poster_path }}"
+        class="w-100"
+        [alt]="mediaDetails?.original_title"
+      />
     </div>
   </div>
   <div class="col-md-6">
     <div class="details">
-      <h2>{{mediaDetails?.original_title || mediaDetails?.name}}</h2>
-      <h2 class="text-danger"> {{mediaDetails?.vote_average}}</h2>
-
+      <h2>{{ mediaDetails?.original_title || mediaDetails?.name }}</h2>
+      <h2 class="text-danger">{{ mediaDetails?.vote_average }}</h2>
 
       <h4 class="mt-5">overview</h4>
-      <hr>
-      <p>{{mediaDetails?.overview}}</p>
+      <hr />
+      <p>{{ mediaDetails?.overview }}</p>
       <div class="geners">
         <h4>geners</h4>
-        <hr>
-        <span class="badge badge-info p-2 d-inline-block ml-2" *ngFor="let gener of mediaDetails?.genres">{{gener.name}}
+        <hr />
+        <span
+          class="badge badge-info p-2 d-inline-block ml-2"
+          *ngFor="let gener of mediaDetails?.genres"
+          >{{ gener.name }}
         </span>
       </div>
 
       <div class="production-companies mt-5">
         <h4>Production Companies</h4>
-        <hr>
-        <div class="row">
-          <div class="col" *ngFor="let company of mediaDetails?.production_companies">
-            <img *ngIf="company.logo_path" class="w-100" src="https://image.tmdb.org/t/p/w500/{{company?.logo_path}}"
-              class="w-100" [alt]="mediaDetails?.original_title">
+        <hr />
+        <div class="row align-items-top justify-content-center">
+          <div
+            class="col bg-light p-2 m-2 d-flex align-items-center"
+            *ngFor="let company of mediaDetails?.production_companies"
+          >
+            <div class="img-container">
+              <img
+                class="w-100"
+                [src]="
+                  company?.logo_path != null
+                    ? 'https://image.tmdb.org/t/p/w500/' + company?.logo_path
+                    : 'https://placehold.co/600x400'
+                "
+                class="w-100"
+                [alt]="mediaDetails?.original_title"
+              />
+            </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>

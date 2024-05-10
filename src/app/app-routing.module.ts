@@ -32,7 +32,7 @@ const routes: Routes = [
       import('./people/people.module').then((m) => m.PeopleModule),
   },
 
-  { path: 'networks', component: NetworksComponent },
+  // { path: 'networks', component: NetworksComponent },
 
   { path: 'login', canActivate: [AuthPagesGuard], component: LoginComponent },
   {

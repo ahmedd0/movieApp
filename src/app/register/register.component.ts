@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../auth.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -31,9 +32,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
   register() {
     if (this.regiserForm.valid) {
-      this._AuthService
-        .register(this.regiserForm.value)
-        .subscribe((response) => {
+      this._AuthService.register(this.regiserForm.value).subscribe(
+        (response) => {
           console.log(response.message);
 
           if (response.message == 'success') {
@@ -41,9 +41,21 @@ export class RegisterComponent implements OnInit {
           } else {
             this.singupError = response.message;
           }
-        });
+        },
+        (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'BackEnd Error!',
+          });
+        }
+      );
     } else {
-      alert('Form Not Valid');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Form Not Valid!',
+      });
     }
   }
 }
