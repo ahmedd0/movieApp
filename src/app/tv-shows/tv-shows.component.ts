@@ -27,44 +27,18 @@ export class TvShowsComponent implements OnInit {
       this.loader = false;
     }, 400);
   }
-  getpagesArr(total: any): any {
-    let arr: any[] = Array(total);
-    let arr2: any[] = [];
-    for (let i: number = 0; i < arr.length; i++) {
-      arr2[i] = i + 1;
-    }
-    this.pagesArr = arr2;
-  }
+
   getAllMedia(pageNum: any) {
     this.subscription = this._TrendingService
       .getAllMedia('tv', pageNum)
       .subscribe((data) => {
         this.trendingTvShows = data.results;
         this.totalPageNum = data.total_pages;
-        this.getpagesArr(this.totalPageNum);
-        this.currentPages = this.pagesArr.slice(this.start, this.end);
+        window.scrollTo(0, 0);
       });
   }
-  nextPage() {
-    if (this.start < this.pagesArr.length) this.start = this.start + 1;
-    this.end = this.end + 1;
-    this.getAllMedia(this.start + 1);
-    console.log(this.start + 1);
-  }
-  prevPage() {
-    if (this.start > 0) {
-      this.start = this.start - 1;
-      this.end = this.end - 1;
-      this.getAllMedia(this.end - 1);
-    }
-  }
-  showPage(i: any) {
-    this.getAllMedia(i.pageNum);
 
-    window.scrollTo(0, 0);
-  }
   ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-
+    this.subscription.unsubscribe();
   }
 }

@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MyListComponent } from './my-list/my-list.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatPaginatorModule,
   ],
 
   providers: [],

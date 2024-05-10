@@ -1,20 +1,7 @@
-<nav aria-label="" class="w-100">
-  <ul class="pagination justify-content-center align-items-center">
-    <li class="page-item ">
-      <a class="page-link" aria-disabled="false" (click)="prev()">Previous</a>
-    </li>
-    <li class="page-item" aria-current="page" *ngFor="let page of currentPages;let i = index">
-      <a class="page-link" (click)="handeShowPage(page)">{{page}}</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" (click)="next()">Next</a>
-    </li>
-    <!-- <ul>
-      <li *ngFor="let item of items | paginate: { itemsPerPage: 10, currentPage: p }"> ... </li>
-    </ul>
-
-    <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-
-  </ul>
-
-</nav>
+<mat-paginator
+  [length]="length"
+  [pageSizeOptions]="[10, 50, 100]"
+  [pageSize]="pageSize"
+  (page)="onChange($event)"
+>
+</mat-paginator>

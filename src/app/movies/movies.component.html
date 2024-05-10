@@ -2,21 +2,18 @@
   <h2>Movies</h2>
   <app-loader *ngIf="loader"></app-loader>
   <div class="row">
-
-    <div class="col-6 col-md-3  mb-3 " *ngFor="let item of trendingMovies">
-
+    <div class="col-6 col-md-3 mb-3" *ngFor="let item of trendingMovies">
       <app-media-item [item]="item">
-        <a [routerLink]='["/details","movie",item.id]' class="btn btn-dark">details</a>
-
+        <a [routerLink]="['/details', 'movie', item.id]" class="btn btn-dark"
+          >details</a
+        >
       </app-media-item>
-
-
-
-
     </div>
   </div>
-  <app-pagination class="w-100" (showPage)="showPage($event)" (nextPage)="nextPage()" (prevPage)="prevPage()"
-    [currentPages]="currentPages"></app-pagination>
-
-
+  <app-pagination
+    [pageSize]="50"
+    [length]="totalPageNum"
+    (onPaginat)="getAllMedia($event)"
+    class="w-100"
+  ></app-pagination>
 </div>

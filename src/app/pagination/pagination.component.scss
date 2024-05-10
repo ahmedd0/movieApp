@@ -1,3 +1,5 @@
-li {
-  cursor: pointer;
+::ng-deep {
+  .mat-paginator-container {
+    justify-content: space-between !important;
+  }
 }

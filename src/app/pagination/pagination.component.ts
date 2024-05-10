@@ -1,26 +1,19 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss'],
 })
-export class PaginationComponent implements OnInit {
-  @Output('nextPage') nextPage: any = new EventEmitter();
-  @Output() prevPage: any = new EventEmitter();
-  @Output() showPage: any = new EventEmitter();
-
-  @Input() currentPages: any;
-  constructor() {}
-
-  ngOnInit(): void {}
-  next() {
-    this.nextPage.emit();
-  }
-  prev() {
-    this.prevPage.emit();
-  }
-  handeShowPage(i: any) {
-    this.showPage.emit({ pageNum: i });
+export class PaginationComponent {
+  @Input() length: any;
+  @Input() pageSize: number = 50;
+  @Output() onPaginat: EventEmitter<any> = new EventEmitter();
+  pageEvent!: PageEvent;
+  onChange(e: any) {
+    this.pageEvent = e;
+    console.log(this.pageEvent.pageIndex);
+    this.onPaginat.emit(this.pageEvent.pageIndex + 1);
   }
 }
